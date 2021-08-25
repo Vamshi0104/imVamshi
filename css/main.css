@@ -81,6 +81,18 @@ body {
  * links - (_document-setup.scss)
  * -------------------------------------------------------------------
  */
+ 
+#connect{
+	color:#6E6E6E;
+}
+
+#connect:hover{
+	color:#66FCF1;
+}
+
+#connect:active{
+	color:blue;
+}
 a, a:visited {
 	color: #000000;
 	-moz-transition: all 0.3s ease-in-out;
