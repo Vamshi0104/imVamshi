@@ -168,7 +168,7 @@ p.lead {
 	font-family: "lora-regular", serif;
 	font-size: 2rem;
 	line-height: 1.8;
-	color: #888888;
+	color: black;
 }
 @media only screen and (max-width:768px) {
 	p.lead {
@@ -2617,6 +2617,38 @@ footer .copyright span:last-child::after {
 #go-top a:hover {
 	background: #000000;
 color:white;
+}
+
+.btn-group1 button {
+  background-color: #1E90FF;
+  color: white;
+  font-size:13px;
+  font-weight:600;
+  font-family:serif;
+  border:2px solid green;
+  cursor: pointer;
+  float: center;
+  margin:1px;
+  border-radius:25px;
+  box-shadow: 6px 6px 1px 0.5px rgba(0, 0, 255, .2);
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group1:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group1 button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group1 button:hover {
+  background-color: #1F2833;
+  color: #66FCF1;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 255, .2);
 }
 
 /*# sourceMappingURL=main.css.map */
