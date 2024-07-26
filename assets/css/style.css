@@ -3,14 +3,6 @@
 \*-----------------------------------*/
 
 
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-
-
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
@@ -236,7 +228,19 @@ body { background: var(--smoky-black); }
     transform: translateY(0);
   }
 }
+@media (max-width: 768px) {
+  .mybtn {
+    font-size: 24px; /* Decrease font size on smaller screens */
+    padding: 8px 16px; /* Adjust padding */
+  }
+}
 
+@media (max-width: 480px) {
+  .mybtn {
+    font-size: 20px; /* Further decrease font size on very small screens */
+    padding: 6px 12px; /* Adjust padding */
+  }
+}
 /*-----------------------------------*\
   #REUSED STYLE
 \*-----------------------------------*/
