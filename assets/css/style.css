@@ -241,11 +241,20 @@ body { background: var(--smoky-black); }
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: top 0.5s ease, opacity 0.5s ease;
     opacity: 0;
+    white-space: nowrap;
+    max-width: 90%;
 }
 
 #notification.show {
     top: 20px;
     opacity: 1;
+}
+
+@media (max-width: 600px) {
+    #notification {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }
 
 
