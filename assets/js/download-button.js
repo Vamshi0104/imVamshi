@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const resumeLink = document.getElementById('resumeLink');
+    const resumeLink1 = document.getElementById('resumeLink1');
     const progressBar = document.getElementById('progress-bar');
     const progressText = document.getElementById('progress-text');
     const progressContainer = document.getElementById('progress-container');
@@ -18,6 +19,21 @@ document.addEventListener('DOMContentLoaded', function () {
             clearTimeout(clickTimer);
             clickTimer = null;
             startDownloadSimulation(resumeLink.href);
+        }
+    });
+
+    resumeLink1.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (clickTimer === null) {
+            clickTimer = setTimeout(() => {
+                window.open(resumeLink1.href, '_blank');
+                clickTimer = null;
+            }, 300);
+        } else {
+            clearTimeout(clickTimer);
+            clickTimer = null;
+            startDownloadSimulation(resumeLink1.href);
         }
     });
 
