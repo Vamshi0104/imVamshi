@@ -411,28 +411,75 @@
 
     var contactForm = document.getElementById("contactForm");
     var formStatus = document.getElementById("formStatus");
+    var formStartedAt = Date.now();
+    var submitCooldownMs = 24 * 60 * 60 * 1000;
+    var submitStorageKey = "vamshi-contact-last-submit";
+    var deviceStorageKey = "vamshi-contact-device";
+    var deviceToken = localStorage.getItem(deviceStorageKey);
+    if (!deviceToken) {
+        deviceToken = "device-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+        localStorage.setItem(deviceStorageKey, deviceToken);
+    }
+    document.getElementById("deviceToken").value = deviceToken;
+    document.getElementById("pageUrl").value = window.location.href;
+
     contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
         var data = new FormData(contactForm);
         var email = (data.get("email") || "").trim();
         var phone = (data.get("phone") || "").trim();
+        var submitButton = contactForm.querySelector("button[type='submit']");
+        var lastSubmit = Number(localStorage.getItem(submitStorageKey) || 0);
+        var now = Date.now();
+
+        if ((data.get("_gotcha") || "").trim()) {
+            formStatus.textContent = "Thanks. Your message was received.";
+            contactForm.reset();
+            return;
+        }
+
+        if (now - formStartedAt < 2200) {
+            formStatus.textContent = "Please take a moment to complete the form before sending.";
+            return;
+        }
+
+        if (lastSubmit && now - lastSubmit < submitCooldownMs) {
+            formStatus.textContent = "Your message was already sent from this device. Please try again later.";
+            return;
+        }
+
         if (!email && !phone) {
             formStatus.textContent = "Add an email address or phone number so I can reply.";
             contactForm.querySelector("[name='email']").focus();
             return;
         }
-        var subject = "Portfolio inquiry from " + data.get("name");
-        var body = [
-            "Name: " + data.get("name"),
-            "Email: " + (email || "Not provided"),
-            "Phone: " + (phone || "Not provided"),
-            "",
-            "Message:",
-            data.get("message")
-        ].join("\n");
-        var mailto = "mailto:vamshi-madhavan@outlook.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-        window.location.href = mailto;
-        formStatus.textContent = "Opening your email app with the full message.";
+
+        data.set("subject", "Portfolio inquiry from " + data.get("name"));
+        data.set("device_token", deviceToken);
+        data.set("page_url", window.location.href);
+        data.set("submitted_at", new Date().toISOString());
+
+        formStatus.textContent = "Sending your message...";
+        submitButton.disabled = true;
+
+        fetch(contactForm.action, {
+            method: "POST",
+            body: data,
+            headers: {
+                Accept: "application/json"
+            }
+        }).then(function (response) {
+            if (!response.ok) throw new Error("Form submission failed");
+            localStorage.setItem(submitStorageKey, String(Date.now()));
+            contactForm.reset();
+            document.getElementById("deviceToken").value = deviceToken;
+            document.getElementById("pageUrl").value = window.location.href;
+            formStatus.textContent = "Message sent. I will get back to you soon.";
+        }).catch(function () {
+            formStatus.textContent = "Something went wrong. Please try again or email me directly.";
+        }).finally(function () {
+            submitButton.disabled = false;
+        });
     });
 
     document.addEventListener("keydown", function (event) {
