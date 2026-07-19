@@ -1251,8 +1251,9 @@ h3 {
 }
 
 .resume-preview-frame {
-    width: 100%;
-    height: min(70vh, 760px);
+    width: min(100%, calc(min(70vh, 760px) * 0.7727));
+    aspect-ratio: 8.5 / 11;
+    margin-inline: auto;
     overflow: hidden;
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
@@ -1478,7 +1479,7 @@ h3 {
     }
 
     .resume-preview-frame {
-        height: 58dvh;
+        width: min(100%, calc(58dvh * 0.7727));
         border-radius: 26px;
     }
 
