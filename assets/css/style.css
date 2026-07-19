@@ -1252,19 +1252,21 @@ h3 {
 
 .resume-preview-frame {
     width: 100%;
-    max-height: min(72vh, 760px);
-    overflow: auto;
+    height: min(70vh, 760px);
+    overflow: hidden;
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
     background: #fff;
     overscroll-behavior: contain;
 }
 
-.resume-preview-frame img {
+.resume-pdf-viewer {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
-    margin: 0 auto;
+    border: 0;
+    background: #fff;
+    transform-origin: top left;
 }
 
 .reveal {
@@ -1476,7 +1478,7 @@ h3 {
     }
 
     .resume-preview-frame {
-        max-height: 62dvh;
+        height: 58dvh;
         border-radius: 26px;
     }
 
