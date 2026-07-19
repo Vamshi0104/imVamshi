@@ -550,6 +550,7 @@ h3 {
 .about-story,
 .focus-grid article,
 .timeline-item,
+.education-panel,
 .testimonial-card,
 .contact-panel {
     border: 1px solid var(--glass-edge);
@@ -639,6 +640,23 @@ h3 {
     transition: width 260ms ease;
 }
 
+.resume-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.8fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.resume-kicker {
+    margin: 0 0 12px;
+    color: var(--accent);
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
 .timeline {
     display: grid;
     gap: 14px;
@@ -674,6 +692,45 @@ h3 {
     font-family: "Poppins", Arial, sans-serif;
     font-size: 0.9rem;
     text-transform: uppercase;
+}
+
+.education-panel {
+    position: sticky;
+    top: 108px;
+    padding: clamp(22px, 3vw, 32px);
+}
+
+.education-list {
+    display: grid;
+    gap: 18px;
+}
+
+.education-item {
+    padding: 0 0 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+.education-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.education-item h3 {
+    margin: 10px 0 8px;
+    font-size: 1.06rem;
+}
+
+.education-item h4 {
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 0.86rem;
+    text-transform: uppercase;
+}
+
+.education-item p {
+    color: var(--muted);
+    font-size: 0.94rem;
 }
 
 .skill-cloud {
@@ -1273,9 +1330,14 @@ h3 {
 
     .hero,
     .about-grid,
+    .resume-content,
     .contact-layout,
     .contact-panel {
         grid-template-columns: 1fr;
+    }
+
+    .education-panel {
+        position: static;
     }
 
     .hero {
