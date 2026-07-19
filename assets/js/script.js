@@ -411,6 +411,8 @@
 
     var contactForm = document.getElementById("contactForm");
     var formStatus = document.getElementById("formStatus");
+    var successSnackbar = document.getElementById("successSnackbar");
+    var snackbarTimer;
     var formStartedAt = Date.now();
     var submitCooldownMs = 24 * 60 * 60 * 1000;
     var submitStorageKey = "vamshi-contact-last-submit";
@@ -422,6 +424,16 @@
     }
     document.getElementById("deviceToken").value = deviceToken;
     document.getElementById("pageUrl").value = window.location.href;
+
+    function showSuccessSnackbar() {
+        window.clearTimeout(snackbarTimer);
+        successSnackbar.classList.add("is-visible");
+        successSnackbar.setAttribute("aria-hidden", "false");
+        snackbarTimer = window.setTimeout(function () {
+            successSnackbar.classList.remove("is-visible");
+            successSnackbar.setAttribute("aria-hidden", "true");
+        }, 5200);
+    }
 
     contactForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -474,7 +486,8 @@
             contactForm.reset();
             document.getElementById("deviceToken").value = deviceToken;
             document.getElementById("pageUrl").value = window.location.href;
-            formStatus.textContent = "Message sent. I will get back to you soon.";
+            formStatus.textContent = "Delivered.";
+            showSuccessSnackbar();
         }).catch(function () {
             formStatus.textContent = "Something went wrong. Please try again or email me directly.";
         }).finally(function () {

@@ -1088,6 +1088,58 @@ h3 {
     padding: 0;
 }
 
+.snackbar {
+    position: fixed;
+    left: 50%;
+    bottom: clamp(18px, 4vw, 34px);
+    z-index: 120;
+    width: min(440px, calc(100vw - 28px));
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1px solid var(--glass-edge);
+    border-radius: 999px;
+    background:
+        linear-gradient(145deg, var(--glass-shine), transparent 48%),
+        var(--glass-strong);
+    color: var(--text);
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(26px) saturate(175%);
+    -webkit-backdrop-filter: blur(26px) saturate(175%);
+    opacity: 0;
+    transform: translate(-50%, 22px) scale(0.96);
+    pointer-events: none;
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.snackbar.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+}
+
+.snackbar-check {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--ink);
+    box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.snackbar.is-visible .snackbar-check {
+    animation: checkPop 520ms ease both;
+}
+
+@keyframes checkPop {
+    0% { transform: scale(0.5); }
+    62% { transform: scale(1.14); }
+    100% { transform: scale(1); }
+}
+
 .project-modal,
 .resume-modal {
     width: min(760px, calc(100vw - 28px));
