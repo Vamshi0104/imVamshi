@@ -1,0 +1,77 @@
+{
+  "assets/images/my-avatar.png": {
+    "src": "assets/images/optimized/my-avatar.webp",
+    "width": 720,
+    "height": 720
+  },
+  "assets/images/projects/clickstream-data-analysis.png": {
+    "src": "assets/images/optimized/clickstream-data-analysis.webp",
+    "width": 1000,
+    "height": 537
+  },
+  "assets/images/projects/vocal-verse.png": {
+    "src": "assets/images/optimized/vocal-verse.webp",
+    "width": 1000,
+    "height": 486
+  },
+  "assets/images/projects/Time-Series-Mining-Approach-for-Agriculture-Area-Detection.jpeg": {
+    "src": "assets/images/optimized/time-series-mining-approach-for-agriculture-area-detection.webp",
+    "width": 281,
+    "height": 179
+  },
+  "assets/images/projects/vintage-knowledge.png": {
+    "src": "assets/images/optimized/vintage-knowledge.webp",
+    "width": 1000,
+    "height": 476
+  },
+  "assets/images/projects/robyn-mcp.jpg": {
+    "src": "assets/images/optimized/robyn-mcp.webp",
+    "width": 1000,
+    "height": 594
+  },
+  "assets/images/projects/song-recommender.png": {
+    "src": "assets/images/optimized/song-recommender.webp",
+    "width": 1000,
+    "height": 563
+  },
+  "assets/images/projects/url-service.png": {
+    "src": "assets/images/optimized/url-service.webp",
+    "width": 1000,
+    "height": 544
+  },
+  "assets/images/projects/insta-wa.png": {
+    "src": "assets/images/optimized/insta-wa.webp",
+    "width": 1000,
+    "height": 612
+  },
+  "assets/images/projects/virtual-assist.jpg": {
+    "src": "assets/images/optimized/virtual-assist.webp",
+    "width": 1000,
+    "height": 563
+  },
+  "assets/images/projects/text-summarize.png": {
+    "src": "assets/images/optimized/text-summarize.webp",
+    "width": 1000,
+    "height": 500
+  },
+  "assets/images/projects/Hospital-Management-System.jpg": {
+    "src": "assets/images/optimized/hospital-management-system.webp",
+    "width": 950,
+    "height": 500
+  },
+  "assets/images/projects/retail-store-management.jpeg": {
+    "src": "assets/images/optimized/retail-store-management.webp",
+    "width": 250,
+    "height": 165
+  },
+  "assets/images/projects/secured-password-generator.png": {
+    "src": "assets/images/optimized/secured-password-generator.webp",
+    "width": 416,
+    "height": 227
+  },
+  "assets/images/projects/multi-lang-chatbot.png": {
+    "src": "assets/images/optimized/multi-lang-chatbot.webp",
+    "width": 284,
+    "height": 177
+  }
+}
